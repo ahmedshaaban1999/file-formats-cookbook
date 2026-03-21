@@ -7,7 +7,7 @@
     {"name": "customer_name", "type": "string"},
     {"name": "product", "type": "string"},
     {"name": "quantity", "type": "int"},
-    {"name": "price", "type": "float"},
+    {"name": "price", "type": "double"},
     {"name": "status", "type": ["null", "string"], "default": null}
   ]
 }
