@@ -1,2 +1,4 @@
 venv/
 *.avro
+*.parquet
+output/
