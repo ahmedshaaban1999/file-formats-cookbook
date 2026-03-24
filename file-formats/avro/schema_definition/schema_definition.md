@@ -1,16 +1,33 @@
 # Schema Definition
 
-A schema is a contract that describes the structure of your data. It defines what fields exist, what types they are, and which fields are optional.
+## Overview
+A schema is a contract that describes the structure of your data. In Avro, schemas are written in JSON and can be defined in two ways: stored in a dedicated `.avsc` file, or written inline as a Python dictionary directly in your code.
 
-In Avro, schemas are written in JSON and can be defined in two ways: stored in a dedicated `.avsc` file, or written inline as a Python dictionary directly in your code.
+## What You'll Learn
+- How to define an Avro schema in a `.avsc` file
+- How to define a schema inline in Python
+- The difference between the two approaches and when to use each
 
-## The Order Schema
+## Concepts
 
-The schema for this example represents an e-commerce order with the following fields:
+### File-Based Schema
+Storing the schema in a `.avsc` file keeps it separate from your code, making it reusable across multiple scripts and easier to version alongside your data.
 
-- `order_id`: a unique integer identifier for the order
-- `customer_name`: the name of the customer as a string
-- `product`: the name of the purchased product as a string
-- `quantity`: the number of units ordered as an integer
-- `price`: the price of the order as a double
-- `status`: an optional string representing the current state of the order, defaults to null if not provided
+### Inline Schema
+Defining the schema as a Python dictionary is useful for quick scripts or when the schema is tightly coupled to the code and unlikely to be reused elsewhere.
+
+## Key Topics
+
+### Schema Structure
+Every Avro schema has three required fields:
+- `type`: always `record` for structured data
+- `name`: the name of the record, equivalent to a table name
+- `namespace`: a prefix that prevents name collisions across schemas
+
+### Field Types
+Avro supports primitive types such as `int`, `long`, `float`, `double`, `string`, and `boolean`, as well as complex types like arrays, maps, and unions. A union of `null` and another type is how optional fields are represented.
+
+## Advanced Tips
+- Use file-based schemas when the schema is shared across multiple scripts or services
+- Use inline schemas for quick prototyping or single-use scripts
+- Always version your `.avsc` files alongside your data to track schema changes over time
