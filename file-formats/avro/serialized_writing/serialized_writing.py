@@ -3,6 +3,7 @@ import io
 import fastavro
 
 SCHEMA_PATH = "../schema_definition/order.avsc"
+
 with open(SCHEMA_PATH) as f:
     schema = fastavro.parse_schema(json.load(f))
 
