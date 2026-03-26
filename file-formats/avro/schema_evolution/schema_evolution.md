@@ -33,6 +33,15 @@ with open("orders_v1.avro", "rb") as f:
 ### Full Compatibility
 A schema is both backward and forward compatible. V2 in this recipe achieves full compatibility because it only adds a field with a default value, allowing both old and new readers to handle each other's data safely.
 
+### Compatibility Summary
+
+| Allowed Change | Backward | Forward | Full |
+|---|---|---|---|
+| Add optional field | ✓ | ✓ | ✓ |
+| Remove optional field | ✓ | ✓ | ✓ |
+| Add required field | | ✓ | |
+| Remove required field | ✓ | | |
+
 ### Reader Schema vs Writer Schema
 Avro resolves differences between schemas at read time:
 - **Writer Schema**: used when data is written
