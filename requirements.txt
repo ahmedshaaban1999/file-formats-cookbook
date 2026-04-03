@@ -1,4 +1,4 @@
-pandas==3.0.0
+pandas==2.2.3
 numpy==2.3.5
 pyarrow==22.0.0
 fastparquet==2025.12.0
