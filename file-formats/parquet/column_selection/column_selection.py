@@ -21,11 +21,11 @@ def create_wide_dataset(num_rows=50000, num_columns=100):
     """Create a wide dataset with many columns for demonstration.
     
     Args:
-        num_rows: Number of rows to generate. Defaults to 50000.
-        num_columns: Total number of columns to create. Defaults to 100.
+        num_rows (integer): Number of rows to generate. Defaults to 50000.
+        num_columns (integer): Total number of columns to create. Defaults to 100.
     
     Returns:
-        pd.DataFrame: A wide DataFrame with mixed data types.
+        df (pd.DataFrame): A wide DataFrame with mixed data types.
     """
     print(f"Creating dataset with {num_rows} rows and {num_columns} columns...")
     
@@ -33,7 +33,7 @@ def create_wide_dataset(num_rows=50000, num_columns=100):
     
     # Create various column types
     data['id'] = np.arange(num_rows)
-    data['timestamp'] = pd.date_range('2020-01-01', periods=num_rows, freq='H')
+    data['timestamp'] = pd.date_range('2020-01-01', periods=num_rows, freq='h')
     data['user_id'] = np.random.randint(1000, 100000, num_rows)
     data['session_id'] = np.random.randint(1, 10000, num_rows)
     
@@ -63,9 +63,9 @@ def write_parquet_file(df, filepath, compression='snappy'):
     """Write a DataFrame to Parquet file using compression.
     
     Args:
-        df: The Pandas DataFrame to write.
-        filepath: Output path for the Parquet file.
-        compression: Compression algorthim. Defaults to snappy
+        df (pd.DataFrame): The Pandas DataFrame to write.
+        filepath (string): Output path for the Parquet file.
+        compression (string): Compression algorthim. Defaults to snappy
     """
     print(f"\nWriting to {filepath}...")
     df.to_parquet(filepath, engine='pyarrow', compression=compression)
@@ -77,7 +77,7 @@ def read_all_columns(filepath):
     """Read entire Parquet file with all columns loaded into memory.
     
     Args:
-        filepath: Path to the Parquet file to read.
+        filepath (string): Path to the Parquet file to read.
     
     Returns:
         - df (pd.DataFrame): The loaded DataFrame.
@@ -104,8 +104,8 @@ def read_subset_columns(filepath, columns):
     """Read only specific columns from a Parquet file.
     
     Args:
-        filepath: Path to the Parquet file to read.
-        columns: List of column names to read.
+        filepath (string): Path to the Parquet file to read.
+        columns (string): List of column names to read.
     
     Returns:
         - df (pd.DataFrame): The loaded DataFrame with selected columns.
@@ -134,7 +134,7 @@ def demonstrate_predicate_pushdown(filepath):
     """Demonstrate predicate pushdown filtering during Parquet read.
     
     Args:
-        filepath: Path to the Parquet file to read.
+        filepath (string): Path to the Parquet file to read.
     
     Returns:
         - df (pd.DataFrame): The filtered and loaded DataFrame.

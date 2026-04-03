@@ -14,7 +14,7 @@ def create_sample_data(num_rows=100000):
     """Create a sample, populated DataFrame with synthetic employee data.
     
     Args:
-        num_rows: Number of rows to generate. Defaults to 100000.
+        num_rows (integer): Number of rows to generate. Defaults to 100000.
     
     Returns:
         pd.DataFrame: A DataFrame containing synthesized employee records.
@@ -25,7 +25,7 @@ def create_sample_data(num_rows=100000):
         'age': np.random.randint(18, 100, num_rows),
         'salary': np.random.randint(30000, 150000, num_rows),
         'department': np.random.choice(['Sales', 'Engineering', 'HR', 'Marketing'], num_rows),
-        'hire_date': pd.date_range('2015-01-01', periods=num_rows, freq='H')
+        'hire_date': pd.date_range('2015-01-01', periods=num_rows, freq='h')
     }
     return pd.DataFrame(data)
 
@@ -34,8 +34,8 @@ def write_with_pyarrow(df, filepath):
     """Write a DataFrame to Parquet using the PyArrow engine.
     
     Args:
-        df: The Pandas DataFrame to write.
-        filepath: Output path for the Parquet file.
+        df (pd.DataFrame): The Pandas DataFrame to write.
+        filepath (string): Output path for the Parquet file.
     
     Returns:
         - elapsed (float): Time in seconds to write the file.
@@ -56,8 +56,8 @@ def write_with_fastparquet(df, filepath):
     """Write a DataFrame to Parquet using the FastParquet engine.
     
     Args:
-        df: The Pandas DataFrame to write.
-        filepath: Output path for the Parquet file.
+        df (pd.DataFrame): The Pandas DataFrame to write.
+        filepath (string): Output path for the Parquet file.
     
     Returns:
         - elapsed (float): Time in seconds to write the file.
@@ -77,8 +77,8 @@ def read_parquet(filepath, engine='pyarrow'):
     """Read a Parquet file back into memory.
     
     Args:
-        filepath: Path to the Parquet file to read.
-        engine: The Parquet engine to use. Defaults to 'pyarrow'.
+        filepath (string): Path to the Parquet file to read.
+        engine (string): The Parquet engine to use. Defaults to 'pyarrow'.
     
     Returns:
         - df (pd.DataFrame): The data read from the Parquet file.
@@ -121,7 +121,15 @@ def main():
         fastparquet_time, fastparquet_size = None, None
     
     # Read back with PyArrow
-    df_read, read_time = read_parquet(pyarrow_file, engine='pyarrow')
+    _, pyarrow_read_time = read_parquet(pyarrow_file, engine='pyarrow')
+    
+    # Read back with FastParquet
+    fastparquet_read_time = None
+    if fastparquet_time is not None:
+        try:
+            _, fastparquet_read_time = read_parquet(fastparquet_file, engine='fastparquet')
+        except Exception as e:
+            print(f"⚠ Could not read with FastParquet: {e}")
     
     # Performance summary
     print("\n" + "=" * 60)
@@ -137,11 +145,16 @@ def main():
         print(f"  File size: {fastparquet_size:.2f} MB")
         speedup = fastparquet_time / pyarrow_time
         size_diff = ((fastparquet_size - pyarrow_size) / pyarrow_size) * 100
-        print(f"\nComparison:")
+        print(f"\nWrite Comparison:")
         print(f"  Speedup (FastParquet vs PyArrow): {speedup:.2f}x")
         print(f"  Size difference: {size_diff:+.1f}%")
     
-    print(f"\nRead time (PyArrow): {read_time:.3f}s")
+    print(f"\nRead times:")
+    print(f"  PyArrow: {pyarrow_read_time:.3f}s")
+    if fastparquet_read_time is not None:
+        print(f"  FastParquet: {fastparquet_read_time:.3f}s")
+        speedup = fastparquet_read_time / pyarrow_read_time
+        print(f"  Speedup (FastParquet vs PyArrow): {speedup:.2f}x")
     print("=" * 60)
 
 
