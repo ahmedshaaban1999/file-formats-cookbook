@@ -13,6 +13,12 @@ Learn the fundamentals of converting Pandas DataFrames to Parquet format. This r
 **Recipe 2: Column Selection - Reading Only What You Need**
 Discover the power of Parquet's columnar storage. This recipe demonstrates how to read only specific columns from wide datasets, dramatically improving read performance and reducing memory usage. Learn predicate pushdown filtering to combine column selection with row filtering for optimal efficiency.
 
+**Recipe 3: Metadata Inspection - Exploring Files Without Reading Data**
+Learn how to inspect Parquet file metadata, schema information, and row group statistics without loading any actual data. This recipe shows you how to extract critical information like record counts, column types, and min/max values for smart query planning and optimization. Perfect for understanding dataset characteristics before processing.
+
+**Recipe 4: Z-Ordering - Multi-Dimensional Data Clustering**
+Master space-filling curve techniques to optimize multi-column range queries. This recipe demonstrates how z-ordering (Morton order) clusters data by sorting based on multiple columns simultaneously, ensuring nearby points in multi-dimensional space stay together. Achieve significant performance improvements when filtering on multiple columns at once.
+
 ### 2. Apache Avro: The Streaming Specialist
 Recipes focused on schema evolution, serialized writing, and Kafka compatibility.
 
