@@ -6,7 +6,7 @@ Apache Avro is an open-source, row-oriented data serialization framework designe
 ---
 
 ### History: when was it created?
-Apache Avro was initially released in 2009, developed by Doug Cutting as part of the Apache Hadoop project. The format was created to address the need for a compact, fast, and schema-driven serialization system that could support dynamic typing and schema evolution without requiring code generation.
+Apache Avro was proposed as a subproject of Apache Hadoop on April 2, 2009, developed by Doug Cutting, the creator of Hadoop, Lucene, and Nutch. It became an Apache top-level project on May 4, 2010.
 
 ---
 
