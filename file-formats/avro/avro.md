@@ -50,3 +50,5 @@ Finally, Avro integrates natively with **Apache Kafka and the Schema Registry**,
 - Ideal for append-only and write-heavy workloads
 - Strong integration with Kafka and the Hadoop ecosystem
 - Supports a wide range of programming languages
+
+For comprehensive technical details on file structure and encoding specifications, refer to the [official Apache Avro documentation](https://avro.apache.org/docs/).
