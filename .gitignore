@@ -3,3 +3,4 @@ venv/
 *.parquet
 output/*.avro
 *.avro
+*.avro
