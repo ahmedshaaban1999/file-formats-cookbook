@@ -32,7 +32,7 @@ The format implements **schema-based metadata** where a typed schema is stored i
 
 Parquet files are organized into **row groups** and pages, making them **split-friendly for distributed processing**. This architecture allows parallel read operations by engines like Spark, Presto, and Dremio. Metadata stored in the file footer and row group indexing help query engines map byte ranges to data ranges, enabling intelligent task scheduling and data locality optimization.
 
-Finally, Parquet supports **schema evolution with backward and forward compatibility**, allowing writing and reading systems to safely evolve schemas over time without breaking existing data pipelines. For comprehensive technical details on file structure and encoding specifications, refer to the [official Apache Parquet documentation](https://parquet.apache.org/documentation/latest/).
+Finally, Parquet supports **schema evolution with backward and forward compatibility**, allowing writing and reading systems to safely evolve schemas over time without breaking existing data pipelines. For comprehensive technical details on file structure and encoding specifications, refer to the [official Apache Parquet documentation](https://parquet.apache.org/docs/).
 
 
 ---
