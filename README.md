@@ -32,6 +32,9 @@ Master Avro's schema evolution capabilities. This recipe demonstrates backward c
 **Recipe 4: Compression Toggling - Choosing the Right Codec**
 Learn how Avro supports multiple compression codecs inside Object Container Files. This recipe compares null, deflate, snappy, and zstandard codecs across 10,000 records, showing real file size differences and helping you choose the right codec based on your speed and storage requirements.
 
+**Recipe 5: Fast Integration - Reading Avro Bytes Directly from Memory**
+Learn how to serialize and deserialize Avro records directly in memory without writing to disk. This recipe demonstrates the standard pattern used in streaming systems like Kafka, where Avro records arrive as raw bytes and must be read efficiently without intermediate file I/O.
+
 ### 3. Apache ORC: The Enterprise Specialist
 
 Recipes focused on high-compression environments and SQL-heavy workflows.
