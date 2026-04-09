@@ -2,7 +2,6 @@
 
 Practical code examples for working with binary file formats in data pipelines.
 
-
 ## Contents
 
 ### 1. Apache Parquet: The Analytics Specialist
@@ -14,44 +13,49 @@ Learn the fundamentals of converting Pandas DataFrames to Parquet format. This r
 Discover the power of Parquet's columnar storage. This recipe demonstrates how to read only specific columns from wide datasets, dramatically improving read performance and reducing memory usage. Learn predicate pushdown filtering to combine column selection with row filtering for optimal efficiency.
 
 **Recipe 3: Metadata Inspection - Exploring Files Without Reading Data**
-Learn how to inspect Parquet file metadata, schema information, and row group statistics without loading any actual data. This recipe shows you how to extract critical information like record counts, column types, and min/max values for smart query planning and optimization. Perfect for understanding dataset characteristics before processing.
+Learn how to inspect Parquet file metadata, schema information, and row group statistics without loading any actual data. This recipe shows you how to extract critical information like record counts, column types, and min/max values for smart query planning and optimization.
 
 **Recipe 4: Z-Ordering - Multi-Dimensional Data Clustering**
-Master space-filling curve techniques to optimize multi-column range queries. This recipe demonstrates how z-ordering (Morton order) clusters data by sorting based on multiple columns simultaneously, ensuring nearby points in multi-dimensional space stay together. Achieve significant performance improvements when filtering on multiple columns at once.
+Master space-filling curve techniques to optimize multi-column range queries. This recipe demonstrates how z-ordering clusters data by sorting based on multiple columns simultaneously, ensuring nearby points in multi-dimensional space stay together.
 
 ### 2. Apache Avro: The Streaming Specialist
-Recipes focused on schema evolution, serialized writing, and Kafka compatibility.
+
+**Recipe 1: Schema Definition - Defining Data Contracts in Avro**
+Learn how to define Avro schemas using `.avsc` files and inline Python dictionaries. This recipe covers the schema structure, field types, optional fields, and the difference between file-based and inline schema definitions.
+
+**Recipe 2: Serialized Writing - Writing and Appending Records**
+Explore the three Avro serialization formats: Object Container File, Binary Encoding, and JSON Encoding. This recipe demonstrates how to write and append individual records to Avro files and explains when to use each format.
+
+**Recipe 3: Schema Evolution - Evolving Schemas Without Breaking Consumers**
+Master Avro's schema evolution capabilities. This recipe demonstrates backward compatibility, forward compatibility, and full compatibility through practical examples of adding fields, removing fields, and understanding how Avro resolves differences between writer and reader schemas at read time.
 
 ### 3. Apache ORC: The Enterprise Specialist
+
 Recipes focused on high-compression environments and SQL-heavy workflows.
 
 ### 4. Cross-Format Bridge Recipes
+
 Recipes that show these formats working together, including benchmarking and type mapping.
 
 ## Setup
 
 1. **Create a Python virtual environment:**
-   ```bash
-   # Using venv (Python 3.6+)
+```bash
    python -m venv venv
-   
-   # Activate the virtual environment
+
    # On Windows:
    venv\Scripts\activate
    # On macOS/Linux:
    source venv/bin/activate
-   ```
+```
 
 2. **Install dependencies from requirements.txt:**
-   ```bash
+```bash
    pip install -r requirements.txt
-   ```
+```
 
 3. **Run a recipe:**
-   ```bash
-   # Navigate to the recipe directory
-   cd file-formats/parquet/hello_world
-   
-   # Run the example
-   python hello_world.py
-   ```
+```bash
+   cd file-formats/avro/schema_definition
+   python schema_definition.py
+```
