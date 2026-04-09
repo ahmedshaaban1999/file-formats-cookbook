@@ -67,4 +67,3 @@ Codec: zstandard    Size: 107029 bytes
 
 ## Important Note
 `zstandard` is not part of the official Avro specification. It is supported by some modern data platforms, but using it may reduce portability between systems. It also requires installing the `zstandard` Python package separately.
-```
