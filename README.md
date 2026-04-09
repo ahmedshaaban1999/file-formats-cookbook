@@ -29,6 +29,9 @@ Explore the three Avro serialization formats: Object Container File, Binary Enco
 **Recipe 3: Schema Evolution - Evolving Schemas Without Breaking Consumers**
 Master Avro's schema evolution capabilities. This recipe demonstrates backward compatibility, forward compatibility, and full compatibility through practical examples of adding fields, removing fields, and understanding how Avro resolves differences between writer and reader schemas at read time.
 
+**Recipe 4: Compression Toggling - Choosing the Right Codec**
+Learn how Avro supports multiple compression codecs inside Object Container Files. This recipe compares null, deflate, snappy, and zstandard codecs across 10,000 records, showing real file size differences and helping you choose the right codec based on your speed and storage requirements.
+
 ### 3. Apache ORC: The Enterprise Specialist
 
 Recipes focused on high-compression environments and SQL-heavy workflows.
