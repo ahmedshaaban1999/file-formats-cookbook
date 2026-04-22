@@ -15,8 +15,8 @@ Discover the power of Parquet's columnar storage. This recipe demonstrates how t
 **Recipe 3: Metadata Inspection - Exploring Files Without Reading Data**
 Learn how to inspect Parquet file metadata, schema information, and row group statistics without loading any actual data. This recipe shows you how to extract critical information like record counts, column types, and min/max values for smart query planning and optimization.
 
-**Recipe 4: Z-Ordering - Multi-Dimensional Data Clustering**
-Master space-filling curve techniques to optimize multi-column range queries. This recipe demonstrates how z-ordering clusters data by sorting based on multiple columns simultaneously, ensuring nearby points in multi-dimensional space stay together.
+**Recipe 4: Partitioning - Organizing Data for Query Optimization**
+Learn how to organize Parquet files into directory hierarchies based on date ranges and other dimensions. This recipe demonstrates time-based partitioning strategies, how to dramatically improve query performance by enabling partition pruning, and best practices for choosing partition keys that match your query patterns.
 
 ### 2. Apache Avro: The Streaming Specialist
 
