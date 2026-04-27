@@ -18,6 +18,12 @@ Learn how to inspect Parquet file metadata, schema information, and row group st
 **Recipe 4: Partitioning - Organizing Data for Query Optimization**
 Learn how to organize Parquet files into directory hierarchies based on date ranges and other dimensions. This recipe demonstrates time-based partitioning strategies, how to dramatically improve query performance by enabling partition pruning, and best practices for choosing partition keys that match your query patterns.
 
+**Recipe 5: Schema Evolution - Adding Columns Without Breaking Readers**
+Master schema evolution techniques to add new columns to existing datasets without breaking old readers. This recipe demonstrates backward and forward compatibility, merging Version 1 and Version 2 files using the V2 schema, handling type conversions for date fields, and best practices for gradual schema migrations with safe default values.
+
+**Recipe 6: Z-Ordering - Optimizing Multi-Dimensional Query Performance**
+Learn Z-ordering (also known as Morton order) to optimize query performance across multiple columns. This recipe demonstrates how Z-ordered clustering arranges data to improve cache locality and query speed when filtering on multiple dimensions, comparing performance with standard row-major ordering.
+
 ### 2. Apache Avro: The Streaming Specialist
 
 **Recipe 1: Schema Definition - Defining Data Contracts in Avro**
