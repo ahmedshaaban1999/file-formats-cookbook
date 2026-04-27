@@ -1,4 +1,4 @@
-# Recipe 4: Schema Evolution - Adding Columns Without Breaking Readers
+# Recipe 5: Schema Evolution - Adding Columns Without Breaking Readers
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Recipe 5: Metadata Inspection - Exploring Files Without Reading Data
+# Recipe 3: Metadata Inspection - Exploring Files Without Reading Data
 
 ## Overview
 

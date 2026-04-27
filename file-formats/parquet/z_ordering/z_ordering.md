@@ -1,4 +1,4 @@
-# Z-Ordering in Parquet: Multi-Dimensional Data Clustering
+# Recipe 6: Z-Ordering - Multi-Dimensional Data Clustering
 
 ## Overview
 

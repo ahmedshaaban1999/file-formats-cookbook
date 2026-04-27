@@ -1,4 +1,4 @@
-# Recipe 3: Partitioning - Organizing Data for Query Optimization
+# Recipe 4: Partitioning - Organizing Data for Query Optimization
 
 ## Overview
 
